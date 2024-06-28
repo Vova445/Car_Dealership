@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car dealership</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+</head>
+<body>
+    <header>
+        <div class="containerHeader">
+            <div class="logo-container">
+                <img src="./images/CarDealershipUkraine.jpg" alt="Logo">
+                <h1 class="homeText">Home</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-text="About">About</a></li>
+                    <li><a href="#cars" data-text="Catalog">Catalog</a></li>
+                    <li><a href="#contacts" data-text="Contacts">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="main-section sectionOne">
+            <div class="car-image-main">
+                <img src="./images/main.png" alt="Car Image">
+            </div>
+            <div class="overlay-text">
+                <h1><span class="firstLetterWelcome">W</span>elcome</h1>
+            </div>
+            <div class="content">
+                <p>Welcome to Car Dealership Ukraine, your one-stop destination for all your automotive needs. Whether you're looking for a sleek sedan, a rugged SUV, or a powerful pickup truck, we have a wide selection of vehicles to choose from. Our experienced team is here to assist you every step of the way, from finding the perfect vehicle to securing financing. Visit us today and experience the difference at Car Dealership Ukraine!</p>
+                <button id="openModalBtn" class="neon-button">Learn More <span class="arrow">→</span></button>
+            </div>
+        </section>
+        
+        
+        
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <div class="modal-header">
+                    <h2 class="modal-title">Welcome to Car Dealership Ukraine!</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Explore our premium services and find your dream car today.</p>
+                    <ul class="modal-list">
+                        <li><i class="fas fa-car"></i> Wide selection of new and pre-owned luxury vehicles</li>
+                        <li><i class="fas fa-wallet"></i> Expert financing assistance tailored to your needs</li>
+                        <li><i class="fas fa-tools"></i> Comprehensive vehicle inspections and warranties</li>
+                        <li><i class="fas fa-exchange-alt"></i> Easy trade-in process for your current vehicle</li>
+                        <li><i class="fas fa-hands-helping"></i> Outstanding customer service and support</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Our Services</h3>
+                        <p>At Car Dealership Ukraine, we offer:</p>
+                        <ul class="modal-list">
+                            <li><i class="fas fa-handshake"></i> Professional and friendly staff</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Conveniently located showrooms</li>
+                            <li><i class="fas fa-phone"></i> 24/7 customer support</li>
+                            <li><i class="fas fa-cogs"></i> State-of-the-art service centers</li>
+                            <li><i class="fas fa-star"></i> Guaranteed satisfaction</li>
+                        </ul>
+                    </div>
+                    <div class="customer-testimonials">
+                        <h3>Customer Testimonials</h3>
+                        <p>"Best car buying experience I've ever had!" - John Doe</p>
+                        <p>"Great selection and amazing service." - Jane Smith</p>
+                        <p>"Highly recommend Car Dealership Ukraine." - Alex Brown</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-btn" id="visitBtn">Visit Us Today!</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+          
+          
+        <section class="sectionTwo" id="about">
+            <div class="leftColumn">
+                <h2 class="titleAbout">About Us</h2>
+                <p class="textAbout">
+                    Welcome to Car Dealership Ukraine, where we are dedicated to providing you with exceptional service and quality vehicles. Our team is committed to helping you find the perfect car that fits your needs and budget. With years of experience in the automotive industry, we have built a reputation for reliability and trustworthiness.
+                </p>
+            </div>
+            
+            <div class="rightColumn">
+                <div class="planet-container">
+                    <div class="planet">
+                        <div class="point" data-description="Explore our wide selection of new and used vehicles from top brands.">
+                            <img src="./images/iconAbout1.jpg" alt="Icon 1">
+                        </div>
+                        <div class="point" data-description="Our expert team is here to assist you with financing options tailored to your needs.">
+                            <img src="./images/iconAbout2.jpg" alt="Icon 2">
+                        </div>
+                        <div class="point" data-description="We provide comprehensive vehicle inspections and warranties for your peace of mind.">
+                            <img src="./images/iconAbout3.jpg" alt="Icon 3">
+                        </div>
+                        <div class="point" data-description="Trade in your current vehicle with ease and get a competitive offer.">
+                            <img src="./images/iconAbout4.jpg" alt="Icon 4">
+                        </div>
+                        <div class="point" data-description="Experience outstanding customer service and support throughout your car buying journey.">
+                            <img src="./images/iconAbout5.jpg" alt="Icon 5">
+                        </div>
+                    </div>
+                </div>
+                <div class="description"></div>
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        <section class="popular-cars" id="cars">
+            <h2 class="titleCars">
+                <span>P</span><span>o</span><span>p</span><span>u</span><span>l</span><span>a</span><span>r</span>
+                <span> </span>
+                <span>N</span><span>e</span><span>w</span>
+                <span> </span>
+                <span>C</span><span>a</span><span>r</span><span>s</span>
+            </h2>
+        
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image landCruiser">
+                                <img src="./images/landCruiser.png" alt="Toyota Land Cruiser 2023">
+                            </div>
+                            <div class="car-info">
+                                <h3>Toyota Land Cruiser 2023</h3>
+                                <p>$USD 83,600.00 - $USD 103,800.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image corolla">
+                                <img src="./images/ToyotaCorolla.png" alt="Toyota Corolla 2024">
+                            </div>
+                            <div class="car-info">
+                                <h3>Toyota Corolla 2024</h3>
+                                <p>$USD 23,200.00 - $USD 26,900.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image gle">
+                                <img src="./images/gle.png" alt="Mercedes-Benz GLE 2021">
+                            </div>
+                            <div class="car-info">
+                                <h3>Mercedes-Benz GLE</h3>
+                                <p>$USD 74,000.00 - $USD 136,999.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image nexo">
+                                <img src="./images/hyundaiNexo.png" alt="Hyundai Nexo">
+                            </div>
+                            <div class="car-info">
+                                <h3>Hyundai Nexo</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image mdx">
+                                <img src="./images/acuraMdx.png" alt="Acura Mdx">
+                            </div>
+                            <div class="car-info">
+                                <h3>Acura Mdx</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image x">
+                                <img src="./images/bmwX.png" alt="BMW X">
+                            </div>
+                            <div class="car-info">
+                                <h3>BMW X</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image taycan">
+                                <img src="./images/porscheTaycan.png" alt="Porsche Taycan">
+                            </div>
+                            <div class="car-info">
+                                <h3>Porsche Taycan</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image q8">
+                                <img src="./images/audiQ8.png" alt="Audi Q8">
+                            </div>
+                            <div class="car-info">
+                                <h3>Audi Q8</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image arteon">
+                                <img src="./images/arteon.png" alt="Volkswagen Arteon">
+                            </div>
+                            <div class="car-info">
+                                <h3>Volkswagen Arteon</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-card">
+                            <div class="car-image gelik">
+                                <img src="./images/mbG.png" alt="Mercedes-Benz G-Class">
+                            </div>
+                            <div class="car-info">
+                                <h3>Mercedes-Benz G-Class</h3>
+                                <p>$USD 30,000.00 - $USD 37,000.00</p>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        
+        <div id="modal-landCruiser" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-landCruiser">&times;</span>
+                <h2>Toyota Land Cruiser 2023</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 381 hp, Engine Capacity: 5.7 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Toyota Land Cruiser 2023 is a symbol of reliability and power. The model features an updated design and modern technologies.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> The Land Cruiser has a rich history, starting from 1951 when the first prototype was released. Since then, the model has undergone many modernization stages.</p>
+                    <div class="car-images">
+                        <img src="./images/toyotaLandCruiserFront.jpg" alt="Toyota Land Cruiser Front">
+                        <img src="./images/landCruiserSide.jpg" alt="Toyota Land Cruiser Side">
+                        <img src="./images/landCruiserBack.jpg" alt="Toyota Land Cruiser Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Excellent car for off-road travel!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Very satisfied with the purchase, but the price could be lower.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-corolla" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-corolla">&times;</span>
+                <h2>Toyota Corolla 2024</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 169 hp, Engine Capacity: 2.0 L, Drive: Front-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Toyota Corolla 2024 is known for its fuel efficiency and reliability. It offers advanced safety features and a comfortable ride.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> The Corolla has been a best-seller since its introduction in 1966, continually evolving with each generation.</p>
+                    <div class="car-images">
+                        <img src="./images/corollaFront.jpg" alt="Toyota Corolla Front">
+                        <img src="./images/corollaSide.jpg" alt="Toyota Corolla Side">
+                        <img src="./images/corollaBack.jpg" alt="Toyota Corolla Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Excellent fuel efficiency and comfortable ride!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Great car, but could use more power.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-gle" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-gle">&times;</span>
+                <h2>Mercedes-Benz GLE 2021</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 255 hp, Engine Capacity: 2.0 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Mercedes-Benz GLE 2021 combines luxury with performance, offering advanced technology and a smooth ride.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> The GLE series has been a leader in the luxury SUV market since its debut in 1997.</p>
+                    <div class="car-images">
+                        <img src="./images/gleFront.jpg" alt="Mercedes-Benz GLE Front">
+                        <img src="./images/gleSide.jpg" alt="Mercedes-Benz GLE Side">
+                        <img src="./images/gleBack.jpg" alt="Mercedes-Benz GLE Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Unmatched luxury and performance!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Great SUV but expensive.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-nexo" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-nexo">&times;</span>
+                <h2>Hyundai Nexo</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 161 hp, Engine Capacity: Fuel Cell Electric, Drive: Front-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Hyundai Nexo is a hydrogen fuel cell vehicle offering eco-friendly technology with a futuristic design.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Introduced in 2018, the Nexo represents Hyundai's commitment to sustainable transportation.</p>
+                    <div class="car-images">
+                        <img src="./images/nexoFront.png" alt="Hyundai Nexo Front">
+                        <img src="./images/nexoSide.png" alt="Hyundai Nexo Side">
+                        <img src="./images/nexoBack.png" alt="Hyundai Nexo Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Impressive eco-friendly technology!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Smooth ride but limited refueling stations.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-mdx" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-mdx">&times;</span>
+                <h2>Acura MDX</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 290 hp, Engine Capacity: 3.5 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Acura MDX combines sporty performance with luxurious features, making it a versatile SUV.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Since its launch in 2000, the MDX has been a top choice for luxury SUV enthusiasts.</p>
+                    <div class="car-images">
+                        <img src="./images/mdxFront.jpg" alt="Acura MDX Front">
+                        <img src="./images/mdxSide.jpg" alt="Acura MDX Side">
+                        <img src="./images/mdxBack.jpg" alt="Acura MDX Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Great balance of performance and luxury!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Could use a bit more cargo space.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-x" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-x">&times;</span>
+                <h2>BMW X</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 300 hp, Engine Capacity: 3.0 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The BMW X series offers sporty handling, luxurious interiors, and advanced technology.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Since its inception in 1999, the BMW X series has been a benchmark for luxury SUVs.</p>
+                    <div class="car-images">
+                        <img src="./images/xFront.jpg" alt="BMW X Front">
+                        <img src="./images/xSide.jpg" alt="BMW X Side">
+                        <img src="./images/xBack.jpg" alt="BMW X Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Exceptional driving experience!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - High price but worth it.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-taycan" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-taycan">&times;</span>
+                <h2>Porsche Taycan</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 750 hp, Engine Capacity: Electric, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Porsche Taycan is a high-performance electric sports car with cutting-edge technology.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Launched in 2019, the Taycan is Porsche's first all-electric vehicle, representing a new era for the brand.</p>
+                    <div class="car-images">
+                        <img src="./images/taycanFront.jpg" alt="Porsche Taycan Front">
+                        <img src="./images/taycanSide.jpg" alt="Porsche Taycan Side">
+                        <img src="./images/taycanBack.jpg" alt="Porsche Taycan Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Incredible performance and technology!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Expensive but worth every penny.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-q8" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-q8">&times;</span>
+                <h2>Audi Q8</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 335 hp, Engine Capacity: 3.0 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Audi Q8 combines the elegance of a luxury sedan with the versatility of an SUV, offering a dynamic driving experience.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> The Q8, introduced in 2018, represents Audi's flagship SUV, blending advanced technology with premium features.</p>
+                    <div class="car-images">
+                        <img src="./images/q8Front.jpg" alt="Audi Q8 Front">
+                        <img src="./images/q8Side.jpg" alt="Audi Q8 Side">
+                        <img src="./images/q8Back.jpg" alt="Audi Q8 Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Perfect blend of luxury and performance!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Love the design but pricey.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-arteon" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-arteon">&times;</span>
+                <h2>Volkswagen Arteon</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 268 hp, Engine Capacity: 2.0 L, Drive: Front-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Volkswagen Arteon is a stylish and spacious sedan offering advanced features and a comfortable ride.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Launched in 2017, the Arteon represents Volkswagen's commitment to innovative design and technology.</p>
+                    <div class="car-images">
+                        <img src="./images/arteonFront.jpg" alt="Volkswagen Arteon Front">
+                        <img src="./images/arteonSide.jpg" alt="Volkswagen Arteon Side">
+                        <img src="./images/arteonBack.jpg" alt="Volkswagen Arteon Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Stylish and comfortable!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Could use more power but great overall.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-gelik" class="modal-car">
+            <div class="modal-content-car fadeIn">
+                <span class="close-car" data-modal-id="modal-gelik">&times;</span>
+                <h2>Mercedes-Benz G-Class</h2>
+                <div class="car-details">
+                    <p><i class="fas fa-tachometer-alt"></i><strong>Specifications:</strong> Engine Power: 416 hp, Engine Capacity: 4.0 L, Drive: All-Wheel Drive</p>
+                    <p><i class="fas fa-info-circle"></i><strong>Description:</strong> The Mercedes-Benz G-Class is an iconic luxury SUV, known for its rugged design and exceptional performance.</p>
+                    <p><i class="fas fa-history"></i><strong>History:</strong> Introduced in 1979, the G-Class has remained a symbol of luxury and capability in the SUV market.</p>
+                    <div class="car-images">
+                        <img src="./images/gFront.jpg" alt="Mercedes-Benz G-Class Front">
+                        <img src="./images/gSide.jpg" alt="Mercedes-Benz G-Class Side">
+                        <img src="./images/gBack.jpg" alt="Mercedes-Benz G-Class Back">
+                    </div>
+                    <div class="car-reviews">
+                        <h3><i class="fas fa-star"></i> Reviews:</h3>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> - Unmatched off-road capability!</p>
+                        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> - Luxurious but very expensive.</p>
+                    </div>
+                    <button class="buy-button">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <section class="sectionFour" id="contacts">
+            <h2>You Can Contact Our Support Team - Just Send Your Request</h2>
+            <form>
+                <div class="formGroup">
+                    <label for="name">Enter your name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="formGroup">
+                    <label for="surname">Enter your surname</label>
+                    <input type="text" id="surname" required>
+                </div>
+                <div class="formGroup">
+                    <label for="email">Enter your email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="formGroup">
+                    <label for="phone">Enter your phone number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="formGroup">
+                    <label for="message">Enter your comment</label>
+                    <textarea id="message" rows="4" required></textarea>
+                </div>
+                <div class="formGroup">
+                    <label for="department">Choose department</label>
+                    <select id="department" required>
+                        <option value="" disabled selected>Select department</option>
+                        <option value="support">Support</option>
+                        <option value="sales">Sales</option>
+                        <option value="billing">Billing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <input type="submit" value="Confirm">
+            </form>
+            <div class="floating-elements">
+                <div class="float-element" style="animation-delay: 0s;"></div>
+                <div class="float-element" style="animation-delay: 1s;"></div>
+                <div class="float-element" style="animation-delay: 2s;"></div>
+                <div class="float-element" style="animation-delay: 3s;"></div>
+                <div class="float-element" style="animation-delay: 4s;"></div>
+                <div class="float-element" style="animation-delay: 5s;"></div>
+                <div class="float-element" style="animation-delay: 6s;"></div>
+                <div class="float-element" style="animation-delay: 7s;"></div>
+                <div class="float-element" style="animation-delay: 8s;"></div>
+                <div class="float-element" style="animation-delay: 9s;"></div>
+            </div>
+            
+        </section>
+        
+        
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur esse facere eveniet quia hic vitae ut laborum error, enim officiis, ab aperiam culpa mollitia? Eius mollitia fugiat quam facilis corrupti.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'flip',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true, 
+            autoplay: {
+                delay: 2000, 
+                disableOnInteraction: false, 
+            },
+            speed: 1000, 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    
+    
+    
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
