@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileIcon.addEventListener('click', () => {
             modalAuth.classList.add('show');
             document.body.classList.add('modal-open');
+            resetForm();
         });
         closeModal.addEventListener('click', () => {
             modalAuth.classList.remove('show');
