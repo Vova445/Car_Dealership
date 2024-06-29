@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "firebase": "^10.12.2",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/firebase": "^3.2.1",
+    "@types/node": "^20.14.9",
+    "undici-types": "^6.19.2"
   }
 }

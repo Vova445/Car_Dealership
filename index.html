@@ -25,9 +25,30 @@
                     <li><a href="#contacts" data-text="Contacts">Contacts</a></li>
                 </ul>
             </nav>
+            <div class="profile-icon-container">
+                <i class="fas fa-user-circle profile-icon" id="profileIcon"></i>
+            </div>
         </div>
     </header>
     <main>
+        <div id="modal-auth" class="modal-auth">
+            <div class="modal-content-auth">
+                <span class="close-auth" id="closeModal">&times;</span>
+                <h2 id="authTitle">Реєстрація</h2>
+                <form id="authForm">
+                    <label for="username" id="usernameLabel">Ім'я користувача:</label>
+                    <input type="text" id="username" name="username">
+                    <label for="email">Пошта:</label>
+                    <input type="email" id="email" name="email">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password">
+                    <label for="confirmPassword" id="confirmPasswordLabel">Повторіть пароль:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                    <button type="submit" id="submitButton">Зареєструватися</button>
+                </form>
+                <p id="switchAuth">Вже зареєстровані? <a href="#" id="toggleAuth">Увійти</a></p>
+            </div>
+        </div>
         <section class="main-section sectionOne">
             <div class="car-image-main">
                 <img src="./src/images/main.png" alt="Car Image">
@@ -580,6 +601,15 @@
             </div>
         </div>
     </footer>
+
+
+
+ 
+    
+    
+    
+
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
@@ -604,11 +634,8 @@
             },
         });
     </script>
-    
-    
-    
-    
 
-    <script src="./src/script.js"></script>
+<script type="module" src="./src/script.js"></script>
+
 </body>
 </html>
