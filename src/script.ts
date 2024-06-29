@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-import { auth } from './firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from './firebase';
+// import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 document.addEventListener('DOMContentLoaded', () => {
     const profileIcon: HTMLElement | null = document.getElementById('profileIcon');
@@ -113,6 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameLabel: HTMLElement | null = document.getElementById('usernameLabel');
     const confirmPasswordLabel: HTMLElement | null = document.getElementById('confirmPasswordLabel');
     const submitButton: HTMLButtonElement | null = document.getElementById('submitButton') as HTMLButtonElement | null;
+
+    const resetForm = () => {
+        if (authForm) {
+            authForm.reset();
+        }
+        if (emailField) {
+            emailField.focus();
+        }
+    };
 
     if (profileIcon && modalAuth && closeModal && authTitle && authForm && toggleAuth && emailField && passwordField && confirmPasswordField && usernameLabel && confirmPasswordLabel && submitButton) {
         profileIcon.addEventListener('click', () => {
@@ -135,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         toggleAuth.addEventListener('click', (event) => {
             event.preventDefault();
-            if (authTitle?.textContent === 'Реєстрація') {
+            if (authTitle.textContent === 'Реєстрація') {
                 authTitle.textContent = 'Авторизація';
                 toggleAuth.textContent = 'Зареєструватися';
                 submitButton.textContent = 'Увійти';
@@ -154,14 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             resetForm();
         });
-        const resetForm = () => {
-            if (authForm) {
-                authForm.reset();
-            }
-            if (emailField) {
-                emailField.focus();
-            }
-        };
 
         authForm?.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -171,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (authTitle?.textContent === 'Реєстрація') {
                 try {
-                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                    console.log('User registered:', userCredential.user);
+                    // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    // console.log('User registered:', userCredential.user);
                     modalAuth.classList.remove('show');
                     document.body.classList.remove('modal-open');
                 } catch (error) {
@@ -180,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 try {
-                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                    console.log('User signed in:', userCredential.user);
+                    // const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    // console.log('User signed in:', userCredential.user);
                     modalAuth.classList.remove('show');
                     document.body.classList.remove('modal-open');
                 } catch (error) {
@@ -193,5 +194,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Some elements were not found on the page.');
     }
 });
-
-

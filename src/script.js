@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+var _this = this;
 var modal = document.getElementById('myModal');
 var openModalBtn = document.getElementById('openModalBtn');
 var closeModalBtn = document.getElementById('closeModalBtn');
@@ -116,8 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-var firebase_1 = require("./firebase");
-var auth_1 = require("firebase/auth");
+// import { auth } from './firebase';
+// import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 document.addEventListener('DOMContentLoaded', function () {
     var profileIcon = document.getElementById('profileIcon');
     var modalAuth = document.getElementById('modal-auth');
@@ -131,11 +130,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var usernameLabel = document.getElementById('usernameLabel');
     var confirmPasswordLabel = document.getElementById('confirmPasswordLabel');
     var submitButton = document.getElementById('submitButton');
+    var resetForm = function () {
+        if (authForm) {
+            authForm.reset();
+        }
+        if (emailField) {
+            emailField.focus();
+        }
+    };
     if (profileIcon && modalAuth && closeModal && authTitle && authForm && toggleAuth && emailField && passwordField && confirmPasswordField && usernameLabel && confirmPasswordLabel && submitButton) {
         profileIcon.addEventListener('click', function () {
             modalAuth.classList.add('show');
             document.body.classList.add('modal-open');
-            resetForm_1();
+            resetForm();
         });
         closeModal.addEventListener('click', function () {
             modalAuth.classList.remove('show');
@@ -149,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         toggleAuth.addEventListener('click', function (event) {
             event.preventDefault();
-            if ((authTitle === null || authTitle === void 0 ? void 0 : authTitle.textContent) === 'Реєстрація') {
+            if (authTitle.textContent === 'Реєстрація') {
                 authTitle.textContent = 'Авторизація';
                 toggleAuth.textContent = 'Зареєструватися';
                 submitButton.textContent = 'Увійти';
@@ -175,57 +182,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (confirmPasswordLabel)
                     document.getElementById('confirmPassword').style.display = 'block';
             }
-            resetForm_1();
+            resetForm();
         });
-        var resetForm_1 = function () {
-            if (authForm) {
-                authForm.reset();
-            }
-            if (emailField) {
-                emailField.focus();
-            }
-        };
-        authForm === null || authForm === void 0 ? void 0 : authForm.addEventListener('submit', function (event) { return __awaiter(void 0, void 0, void 0, function () {
-            var email, password, userCredential, error_1, userCredential, error_2;
+        authForm === null || authForm === void 0 ? void 0 : authForm.addEventListener('submit', function (event) { return __awaiter(_this, void 0, void 0, function () {
+            var email, password;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        event.preventDefault();
-                        email = emailField === null || emailField === void 0 ? void 0 : emailField.value;
-                        password = passwordField === null || passwordField === void 0 ? void 0 : passwordField.value;
-                        if (!email || !password)
-                            return [2 /*return*/];
-                        if (!((authTitle === null || authTitle === void 0 ? void 0 : authTitle.textContent) === 'Реєстрація')) return [3 /*break*/, 5];
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, (0, auth_1.createUserWithEmailAndPassword)(firebase_1.auth, email, password)];
-                    case 2:
-                        userCredential = _a.sent();
-                        console.log('User registered:', userCredential.user);
+                event.preventDefault();
+                email = emailField === null || emailField === void 0 ? void 0 : emailField.value;
+                password = passwordField === null || passwordField === void 0 ? void 0 : passwordField.value;
+                if (!email || !password)
+                    return [2 /*return*/];
+                if ((authTitle === null || authTitle === void 0 ? void 0 : authTitle.textContent) === 'Реєстрація') {
+                    try {
+                        // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                        // console.log('User registered:', userCredential.user);
                         modalAuth.classList.remove('show');
                         document.body.classList.remove('modal-open');
-                        return [3 /*break*/, 4];
-                    case 3:
-                        error_1 = _a.sent();
-                        console.error('Error registering user:', error_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [3 /*break*/, 8];
-                    case 5:
-                        _a.trys.push([5, 7, , 8]);
-                        return [4 /*yield*/, (0, auth_1.signInWithEmailAndPassword)(firebase_1.auth, email, password)];
-                    case 6:
-                        userCredential = _a.sent();
-                        console.log('User signed in:', userCredential.user);
-                        modalAuth.classList.remove('show');
-                        document.body.classList.remove('modal-open');
-                        return [3 /*break*/, 8];
-                    case 7:
-                        error_2 = _a.sent();
-                        console.error('Error signing in user:', error_2);
-                        return [3 /*break*/, 8];
-                    case 8: return [2 /*return*/];
+                    }
+                    catch (error) {
+                        console.error('Error registering user:', error);
+                    }
                 }
+                else {
+                    try {
+                        // const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                        // console.log('User signed in:', userCredential.user);
+                        modalAuth.classList.remove('show');
+                        document.body.classList.remove('modal-open');
+                    }
+                    catch (error) {
+                        console.error('Error signing in user:', error);
+                    }
+                }
+                return [2 /*return*/];
             });
         }); });
     }
