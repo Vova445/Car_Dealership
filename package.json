@@ -6,7 +6,8 @@
     "start": "node server.js",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext .ts,.js"
+    "lint": "eslint . --ext .ts,.js",
+    "lint:js": "eslint . --ext .js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
