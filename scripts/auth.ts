@@ -30,13 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('modal-open');
         });
 
-        window.addEventListener('click', (event: MouseEvent) => {
-            if (event.target === modalAuth) {
-                modalAuth.classList.remove('show');
-                document.body.classList.remove('modal-open');
-            }
-        });
-
         toggleAuth.addEventListener('click', (event: MouseEvent) => {
             event.preventDefault();
             if (authTitle.textContent === 'Registration') {
