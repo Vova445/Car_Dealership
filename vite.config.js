@@ -1,8 +1,18 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  build: {
-    outDir: 'public'
+
+  base: '/Car_Dealership/',
+  server: {
+    fsServe: {
+      strict: false,
+    },
   },
-  base: '/Car_Dealership/' 
+  build: {
+    // outDir: 'public',
+    manifest: false,
+    rollupOptions: {
+      input: './public/index.html', 
+    },
+  },
 });
