@@ -2,6 +2,7 @@
   "name": "car-dealership",
   "version": "1.0.0",
   "main": "server.js",
+  "homepage": "https://Vova445.github.io/Car_Dealership/",
   "scripts": {
     "start": "node server.js",
     "dev": "vite",
