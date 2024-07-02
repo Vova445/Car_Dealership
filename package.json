@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --config eslint.config.js",
-    "lint:js": "eslint . --ext .js"
+    "lint:js": "eslint ."
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
