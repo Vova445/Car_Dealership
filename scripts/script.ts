@@ -8,18 +8,26 @@ function openModal(): void {
 }
 
 function closeModal(): void {
-    modal.style.display = 'none';
-    document.body.classList.remove('modal-open');
+    const modalContent = modal.querySelector('.modal-content') as HTMLElement;
+    modalContent.style.opacity = '0';
+    modalContent.style.transform = 'scale(0.1)';
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        modalContent.style.opacity = '1';
+        modalContent.style.transform = 'scale(1)';
+    }, 500);
 }
+
 
 openModalBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
 
-window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        closeModal();
-    }
-});
+// window.addEventListener('click', (event) => {
+//     if (event.target === modal) {
+//         closeModal();
+//     }
+// });
 
 document.querySelectorAll('.point').forEach(point => {
     point.addEventListener('mouseenter', function(this: HTMLElement) {
