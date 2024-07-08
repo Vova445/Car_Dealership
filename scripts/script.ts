@@ -63,7 +63,7 @@ function toggleDescription(element: HTMLElement) {
         showDescription(element);
     }
 }
-
+//
 document.addEventListener('DOMContentLoaded', () => {
     const modals = document.querySelectorAll<HTMLDivElement>('.modal-car');
     const modalTriggers = document.querySelectorAll<HTMLDivElement>('.car-card');
