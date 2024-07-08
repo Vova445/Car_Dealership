@@ -64,17 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('modal-open');
     };
 
-    // const loggedInUser = localStorage.getItem('loggedInUser');
-    // if (loggedInUser) {
-    //     const { username, email } = JSON.parse(loggedInUser);
-    //     showProfileModal(username, email);
-    // } else {
-    //     if (profileModal) {
-    //         profileModal.classList.remove('show');
-    //         document.body.classList.remove('modal-open');
-    //     }
-    // }
-
     if (profileIcon && modalAuth && closeModal && authTitle && authForm && toggleAuth && emailField && passwordField && confirmPasswordField && usernameField && usernameLabel && confirmPasswordLabel && submitButton && profileModal && closeProfileModal && profileUsername && profileEmail && logoutButton) {
         profileIcon.addEventListener('click', () => {
             const loggedInUser = localStorage.getItem('loggedInUser');
@@ -133,6 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
             resetForm();
         });
 
+        const base_URL = "https://vova445.github.io/Car_Dealership";
+
         authForm.addEventListener('submit', async (event: Event) => {
             event.preventDefault();
             const email = emailField?.value;
@@ -144,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const endpoint = authTitle?.textContent === 'Registration' ? '/register' : '/login';
+            const endpoint = authTitle?.textContent === 'Registration' ? `${base_URL}/register` : `${base_URL}/login`;
             const body = authTitle?.textContent === 'Registration' ? { email, password, username } : { email, password };
 
             try {
