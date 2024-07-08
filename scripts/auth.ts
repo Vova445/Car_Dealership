@@ -132,32 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!email || !password || (authTitle?.textContent === 'Registration' && (!username || password !== confirmPassword))) {
                 return;
             }
-
-            const baseURL = "https://Vova445.github.io/Car_Dealership";
-
-            const endpoint = authTitle?.textContent === 'Registration' ? `${baseURL}/register` : `${baseURL}/login`;
-            const body = authTitle?.textContent === 'Registration' ? { email, password, username } : { email, password };
-
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (response.ok) {
-                    console.log(authTitle?.textContent === 'Registration' ? 'User registered' : 'User signed in');
-                    hideAuthModal();
-                    localStorage.setItem('loggedInUser', JSON.stringify({ username, email }));
-                    showProfileModal(username, email);
-                } else {
-                    console.error('Error:', await response.text());
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-            }
+            const loggedInUser = { username, email };
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+            showProfileModal(username, email);
+            resetForm();
         });
     } else {
         console.error('Some elements were not found on the page.');
@@ -167,11 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const visitBtn = document.getElementById('visitBtn') as HTMLElement | null;
     const modalAuth = document.getElementById('modal-auth') as HTMLElement | null;
-    const closeModalAuth = document.getElementById('closeModal') as HTMLElement | null;
     const myModal = document.getElementById('myModal') as HTMLElement | null;
-    const closeModalBtn = document.getElementById('closeModalBtn') as HTMLElement | null;
 
-    if (!visitBtn || !modalAuth || !closeModalAuth || !myModal || !closeModalBtn) {
+    if (!visitBtn || !modalAuth || !myModal) {
         console.error('Required elements not found');
         return;
     }
