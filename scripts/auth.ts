@@ -133,7 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const endpoint = authTitle?.textContent === 'Registration' ? '/register' : '/login';
+            const baseURL = "https://Vova445.github.io/Car_Dealership";
+
+            const endpoint = authTitle?.textContent === 'Registration' ? `${baseURL}/register` : `${baseURL}/login`;
             const body = authTitle?.textContent === 'Registration' ? { email, password, username } : { email, password };
 
             try {
