@@ -122,8 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
             resetForm();
         });
 
-        const base_URL = "https://vova445.github.io/Car_Dealership";
-
         authForm.addEventListener('submit', async (event: Event) => {
             event.preventDefault();
             const email = emailField?.value;
@@ -135,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const endpoint = authTitle?.textContent === 'Registration' ? `${base_URL}/register` : `${base_URL}/login`;
+            const endpoint = authTitle?.textContent === 'Registration' ? '/register' : '/login';
             const body = authTitle?.textContent === 'Registration' ? { email, password, username } : { email, password };
 
             try {
