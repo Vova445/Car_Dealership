@@ -23,11 +23,7 @@ function closeModal(): void {
 openModalBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
 
-// window.addEventListener('click', (event) => {
-//     if (event.target === modal) {
-//         closeModal();
-//     }
-// });
+
 
 document.querySelectorAll('.point').forEach(point => {
     point.addEventListener('mouseenter', function(this: HTMLElement) {
