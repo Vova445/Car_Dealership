@@ -9,7 +9,13 @@ require('dotenv').config();
 const app = express();
 const port = 5000;
 
-app.use(cors());
+const corsOptions = {
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(express.static('dist', {
