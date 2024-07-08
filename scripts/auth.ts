@@ -12,50 +12,120 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameLabel = document.getElementById('usernameLabel') as HTMLElement | null;
     const confirmPasswordLabel = document.getElementById('confirmPasswordLabel') as HTMLElement | null;
     const submitButton = document.getElementById('submitButton') as HTMLButtonElement | null;
+    const profileModal = document.getElementById('modal-profile') as HTMLElement | null;
+    const closeProfileModal = document.getElementById('closeProfileModal') as HTMLElement | null;
+    const profileUsername = document.getElementById('profileUsername') as HTMLElement | null;
+    const profileEmail = document.getElementById('profileEmail') as HTMLElement | null;
+    const logoutButton = document.getElementById('logoutButton') as HTMLElement | null;
 
     const resetForm = () => {
         authForm?.reset();
     };
 
-    if (profileIcon && modalAuth && closeModal && authTitle && authForm && toggleAuth && emailField && passwordField && confirmPasswordField && usernameField && usernameLabel && confirmPasswordLabel && submitButton) {
-        profileIcon.addEventListener('click', () => {
-            modalAuth.classList.add('show');
+    const showProfileModal = (username: string | null, email: string | null) => {
+        if (profileUsername && profileEmail && profileModal) {
+            if (username) {
+                profileUsername.textContent = username;
+            }
+            if (email) {
+                profileEmail.textContent = email;
+            }
+            profileModal.classList.add('show');
             document.body.classList.add('modal-open');
-            resetForm();
+        }
+    };
+
+    const hideModal = (modal: HTMLElement, modalContentClass: string) => {
+        const modalContent = modal.querySelector(modalContentClass) as HTMLElement;
+        modalContent.classList.add('hide');
+        setTimeout(() => {
+            modal.classList.remove('show');
+            modalContent.classList.remove('hide');
+            document.body.classList.remove('modal-open');
+        }, 500);
+    };
+
+    const hideProfileModal = () => {
+        if (profileModal) {
+            hideModal(profileModal, '.modal-content-profile');
+        }
+    };
+
+    const hideAuthModal = () => {
+        if (modalAuth) {
+            hideModal(modalAuth, '.modal-content-auth');
+        }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInUser');
+        hideProfileModal();
+        modalAuth!.classList.add('show');
+        document.body.classList.add('modal-open');
+    };
+
+    // const loggedInUser = localStorage.getItem('loggedInUser');
+    // if (loggedInUser) {
+    //     const { username, email } = JSON.parse(loggedInUser);
+    //     showProfileModal(username, email);
+    // } else {
+    //     if (profileModal) {
+    //         profileModal.classList.remove('show');
+    //         document.body.classList.remove('modal-open');
+    //     }
+    // }
+
+    if (profileIcon && modalAuth && closeModal && authTitle && authForm && toggleAuth && emailField && passwordField && confirmPasswordField && usernameField && usernameLabel && confirmPasswordLabel && submitButton && profileModal && closeProfileModal && profileUsername && profileEmail && logoutButton) {
+        profileIcon.addEventListener('click', () => {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                const { username, email } = JSON.parse(loggedInUser);
+                showProfileModal(username, email);
+            } else {
+                modalAuth.classList.add('show');
+                document.body.classList.add('modal-open');
+                resetForm();
+            }
         });
 
         closeModal.addEventListener('click', () => {
-            const modalContent = modalAuth.querySelector('.modal-content-auth') as HTMLElement;
-            modalContent.classList.add('hide');
-            setTimeout(() => {
-                modalAuth.classList.remove('show');
-                modalContent.classList.remove('hide');
-                document.body.classList.remove('modal-open');
-            }, 500);
+            const modalContent = modalAuth?.querySelector('.modal-content-auth') as HTMLElement;
+            if (modalContent) {
+                modalContent.classList.add('hide');
+                setTimeout(() => {
+                    modalAuth!.classList.remove('show');
+                    modalContent.classList.remove('hide');
+                    document.body.classList.remove('modal-open');
+                }, 500);
+            }
         });
+
+        closeProfileModal.addEventListener('click', hideProfileModal);
+
+        logoutButton.addEventListener('click', handleLogout);
 
         toggleAuth.addEventListener('click', (event: MouseEvent) => {
             event.preventDefault();
-            const formContent = authForm as HTMLElement;
+            const formContent = authForm!;
 
             formContent.classList.add('form-hide');
             setTimeout(() => {
-                if (authTitle.textContent === 'Registration') {
-                    authTitle.textContent = 'Authorization';
-                    toggleAuth.textContent = 'Registration';
-                    submitButton.textContent = 'Sign In';
-                    usernameLabel.style.display = 'none';
-                    confirmPasswordLabel.style.display = 'none';
-                    usernameField.style.display = 'none';
-                    confirmPasswordField.style.display = 'none';
+                if (authTitle!.textContent === 'Registration') {
+                    authTitle!.textContent = 'Authorization';
+                    toggleAuth!.textContent = 'Registration';
+                    submitButton!.textContent = 'Sign In';
+                    usernameLabel!.style.display = 'none';
+                    confirmPasswordLabel!.style.display = 'none';
+                    usernameField!.style.display = 'none';
+                    confirmPasswordField!.style.display = 'none';
                 } else {
-                    authTitle.textContent = 'Registration';
-                    toggleAuth.textContent = 'Sign In';
-                    submitButton.textContent = 'Register';
-                    usernameLabel.style.display = 'block';
-                    confirmPasswordLabel.style.display = 'block';
-                    usernameField.style.display = 'block';
-                    confirmPasswordField.style.display = 'block';
+                    authTitle!.textContent = 'Registration';
+                    toggleAuth!.textContent = 'Sign In';
+                    submitButton!.textContent = 'Register';
+                    usernameLabel!.style.display = 'block';
+                    confirmPasswordLabel!.style.display = 'block';
+                    usernameField!.style.display = 'block';
+                    confirmPasswordField!.style.display = 'block';
                 }
                 formContent.classList.remove('form-hide');
                 formContent.classList.add('form-transition');
@@ -88,13 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     console.log(authTitle?.textContent === 'Registration' ? 'User registered' : 'User signed in');
-                    const modalContent = modalAuth.querySelector('.modal-content-auth') as HTMLElement;
-                    modalContent.classList.add('hide');
-                    setTimeout(() => {
-                        modalAuth.classList.remove('show');
-                        modalContent.classList.remove('hide');
-                        document.body.classList.remove('modal-open');
-                    }, 500);
+                    hideAuthModal();
+                    localStorage.setItem('loggedInUser', JSON.stringify({ username, email }));
+                    showProfileModal(username, email);
                 } else {
                     console.error('Error:', await response.text());
                 }
@@ -119,17 +185,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    const showProfileModal = (username: string | null, email: string | null) => {
+        const profileModal = document.getElementById('modal-profile') as HTMLElement | null;
+        const profileUsername = document.getElementById('profileUsername') as HTMLElement | null;
+        const profileEmail = document.getElementById('profileEmail') as HTMLElement | null;
+    
+        if (profileUsername && profileEmail && profileModal) {
+            if (username) {
+                profileUsername.textContent = username;
+            }
+            if (email) {
+                profileEmail.textContent = email;
+            }
+            profileModal.classList.add('show');
+            document.body.classList.add('modal-open');
+        }
+    };
+
     const isUserRegistered = (): boolean => {
-        return false;
+        return !!localStorage.getItem('loggedInUser');
     };
 
     visitBtn.addEventListener('click', () => {
         if (!isUserRegistered()) {
-            myModal.style.display = 'none';
-            modalAuth.classList.add('show');
+            myModal!.style.display = 'none';
+            modalAuth!.classList.add('show');
             document.body.classList.add('modal-open');
         } else {
-            console.log('User is already registered');
+            myModal!.style.display = 'none'; 
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                const { username, email } = JSON.parse(loggedInUser);
+                showProfileModal(username, email);
+            }
         }
     });
 });
